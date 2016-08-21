@@ -7,5 +7,13 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
                     
   has_secure_password
-  has_meny :microposts
+  has_many :microposts
+                      
+  validates :area, allow_blank: true,
+                    length: { minimum: 1, maximum: 10 },
+                    on: :update
+  validates :birthday, allow_blank: true,
+                    length: { minimum: 2, maximum: 20 },
+                    on: :update
+    
 end

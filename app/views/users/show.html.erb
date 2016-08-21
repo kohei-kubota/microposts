@@ -2,3 +2,8 @@
   <%= gravatar_for @user %>
   <%= @user.name %>
 </h1>
+
+<table class="table table-striped">
+  <tr><th class="bg-success">出身地</th><td class="bg-success"><%= @user.area %></td></tr>
+  <tr><th class="bg-info">生年月日</th><td class="bg-info"><%= @user.birthday %></td></tr>
+</table>
