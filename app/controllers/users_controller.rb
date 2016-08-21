@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
   
   def show
   end
@@ -19,7 +20,6 @@ class UsersController < ApplicationController
   end
   
   def edit
-    redirect_to root_path if current_user != @user
   end
   
   def update
@@ -43,5 +43,9 @@ class UsersController < ApplicationController
   
   def update_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :area, :birthday)
+  end
+  
+  def correct_user
+    redirect_to root_path if current_user != @user
   end
 end
