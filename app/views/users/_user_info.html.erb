@@ -1,0 +1,11 @@
+<section class="user_info">
+  <h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </h1>
+  <table class="table table-striped">
+    <tr><th class="bg-success">出身地</th><td class="bg-success"><%= @user.area %></td></tr>
+    <tr><th class="bg-info">生年月日</th><td class="bg-info"><%= @user.birthday %></td></tr>
+    <tr><th class=""><%= link_to "フォロワー", followers_user_path(@user) %></th><th class=""><%= link_to "フォロー", followings_user_path(@user) %></th></tr>
+  </table>
+</section>

@@ -1,15 +1,6 @@
 <div class="row">
   <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-      <table class="table table-striped">
-        <tr><th class="bg-success">出身地</th><td class="bg-success"><%= @user.area %></td></tr>
-        <tr><th class="bg-info">生年月日</th><td class="bg-info"><%= @user.birthday %></td></tr>
-      </table>
-    </section>
+    <%= render 'user_info' %>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>

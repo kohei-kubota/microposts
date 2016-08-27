@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :followings, :followers]
   before_action :correct_user, only: [:edit, :update]
   
   def show
@@ -13,13 +13,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else
       render 'new'
     end
   end
-  
+
   def edit
   end
   
@@ -30,6 +31,18 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def followings
+    @title = 'Followings'
+    @users = @user.following_users
+    render 'show_follow'
+  end
+  
+  def followers
+    @title = 'followers'
+    @users = @user.follower_users
+    render 'show_follow'
   end
 
   private

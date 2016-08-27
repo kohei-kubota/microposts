@@ -1,0 +1,19 @@
+<aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+      <table class="table table-striped">
+        <tr><th class="bg-success">出身地</th><td class="bg-success"><%= @user.area %></td></tr>
+        <tr><th class="bg-info">生年月日</th><td class="bg-info"><%= @user.birthday %></td></tr>
+      </table>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if current_user.following_relationships.any? %>
+      <h3>follower (<%= current_user.following_relationships.count %>)</h3>
+      <% render @followings %>
+    <% end %>
+  </div>
+</div>

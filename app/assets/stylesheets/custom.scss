@@ -178,3 +178,22 @@ aside {
     margin-bottom: 5px;
   }
 }
+
+
+#flex-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  margin-top: 30px;
+  li {
+    width: 200px;
+    list-style: none;
+  }
+}
